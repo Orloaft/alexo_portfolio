@@ -79,6 +79,44 @@ export const Frame = styled.div`
     rgba(36, 163, 190, 1) 91.1%
   );
 `;
+const FlipCard = styled.div`
+  background-color: transparent;
+  height: 100%;
+  width: 25rem;
+  perspective: 1000px;
+  &:hover {
+    & .innerCard {
+      transform: rotateY(180deg);
+    }
+  }
+`;
+const InnerCard = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+`;
+const FrontCard = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background-color: #bbb;
+  color: black;
+`;
+const BackCard = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+`;
 const slide = keyframes`
  0% {  transform: translate(0, 0); }
  50% {  transform: translate(-1rem, 0); }
@@ -90,18 +128,19 @@ const Character = styled(Frame)`
   justify-content: space-between;
   height: 100%;
   width: 100%;
-  &:hover {
-    animation: ${slide}, ${hoverRainbow};
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  }
 `;
 export const CharacterView: React.FC<CharacterViewProps> = () => {
   return (
-    <Character>
-      <Avatar />
-      <Stats />
-    </Character>
+    <FlipCard>
+      <InnerCard className="innerCard">
+        <FrontCard>
+          <Character>
+            <Avatar />
+            <Stats />
+          </Character>
+        </FrontCard>
+        <BackCard></BackCard>
+      </InnerCard>
+    </FlipCard>
   );
 };

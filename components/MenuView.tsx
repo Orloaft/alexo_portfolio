@@ -25,7 +25,7 @@ const PartyWrap = styled.div`
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.75rem;
 `;
 const Box = styled.div`
   position: relative;
@@ -34,7 +34,7 @@ const Box = styled.div`
 `;
 const MenuContainer = styled.div`
   display: flex;
-  gap: 0.25rem;
+  gap: 0.75rem;
   height: 100%;
   width: 100%;
   position: relative;
