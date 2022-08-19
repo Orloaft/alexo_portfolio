@@ -37,9 +37,9 @@ const MenuContainer = styled.div`
   gap: 0.75rem;
   height: 100%;
   width: 100%;
-  position: relative;
-  top: 20%;
-  left: 20%;
+  position: absolute;
+  top: 25%;
+  left: 25%;
   animation: ${emerge};
   animation-duration: 0.5s;
   animation-iteration-count: once;

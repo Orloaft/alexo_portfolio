@@ -95,7 +95,7 @@ const InnerCard = styled.div`
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 0.8s;
+  transition: transform 1.6s;
   transform-style: preserve-3d;
 `;
 const FrontCard = styled.div`
@@ -104,17 +104,13 @@ const FrontCard = styled.div`
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background-color: #bbb;
-  color: black;
 `;
-const BackCard = styled.div`
+const BackCard = styled(Frame)`
   position: absolute;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background-color: dodgerblue;
-  color: white;
   transform: rotateY(180deg);
 `;
 const slide = keyframes`
@@ -139,7 +135,10 @@ export const CharacterView: React.FC<CharacterViewProps> = () => {
             <Stats />
           </Character>
         </FrontCard>
-        <BackCard></BackCard>
+        <BackCard>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+          maiores rem praesentium impedit nulla ipsum, sed velit tempora quas
+        </BackCard>
       </InnerCard>
     </FlipCard>
   );
