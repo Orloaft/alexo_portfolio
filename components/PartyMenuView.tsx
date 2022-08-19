@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import style from "styled-jsx/style";
+
 import { Frame } from "./CharacterView";
 import { ToolTip } from "./ToolTip";
 
@@ -60,6 +60,7 @@ const accordionText = keyframes`
     }
   
 `;
+
 const MenuSpan = styled.span`
   cursor: default;
   font-size: 2rem;
@@ -70,22 +71,20 @@ const MenuSpan = styled.span`
     animation-timing-function: linear;
   }
 `;
-interface PartyMenuViewProps {
-  anchorRef: any;
-}
+interface PartyMenuViewProps {}
 export const PartyMenuView = (props: PartyMenuViewProps) => {
   return (
     <PartyMenu>
-      <ToolTip anchorRef={props.anchorRef} content="Abilities">
+      <ToolTip content="Abilities">
         <MenuSpan>Abilities</MenuSpan>
       </ToolTip>
-      <ToolTip anchorRef={props.anchorRef} content="Items">
+      <ToolTip content="Items">
         <MenuSpan>Items</MenuSpan>
       </ToolTip>
-      <ToolTip anchorRef={props.anchorRef} content="Magic">
+      <ToolTip content="Magic">
         <MenuSpan>Magic</MenuSpan>{" "}
       </ToolTip>
-      <ToolTip anchorRef={props.anchorRef} content="GF">
+      <ToolTip content="GF">
         {" "}
         <MenuSpan>GF</MenuSpan>{" "}
       </ToolTip>

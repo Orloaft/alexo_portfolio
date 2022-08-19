@@ -3,22 +3,21 @@ import placeHolder from "../public/placeholder.png";
 
 const Name = styled.div`
   font-size: 1rem;
-
   color: #ffebcd;
 `;
-const Frame = styled.div`
+const PortraitFrame = styled.div`
   display: flex;
   flex-direction: column;
 `;
 export const Avatar = () => {
   return (
-    <Frame>
+    <PortraitFrame>
       <img
         src={placeHolder.src}
         alt="placeholder"
         style={{ height: "5rem", width: "5rem" }}
       ></img>
       <Name>Alex Orlow</Name>
-    </Frame>
+    </PortraitFrame>
   );
 };

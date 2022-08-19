@@ -3,13 +3,12 @@ import React, { ReactNode, useRef } from "react";
 import { useDebouncedCallback } from "use-debounce";
 
 interface ToolTipProps {
-  anchorRef: any;
   content: string;
   children: ReactNode;
 }
 
 export function ToolTip(props: ToolTipProps) {
-  const { children, anchorRef } = props;
+  const { children } = props;
 
   const [isActive, setIsActive] = React.useState(false);
   const debouncedClick = useDebouncedCallback((isActive: boolean) => {
@@ -31,7 +30,7 @@ export function ToolTip(props: ToolTipProps) {
           id="card"
           open={isActive}
           onClose={() => null}
-          anchorEl={anchorRef}
+          // anchorEl={anchorRef}
           anchorReference="anchorPosition"
           anchorPosition={{ top: 150, left: 500 }}
         >

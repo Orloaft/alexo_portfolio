@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { keyframes } from "styled-components";
-import { useState } from "react";
 
 const Hp = styled.div`
   height: 1rem;
@@ -22,16 +20,18 @@ const Label = styled.label`
   color: #ffebcd;
   display: flex;
   gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
 `;
 const Class = styled.span`
   margin-top: 5%;
 `;
+const StatWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+`;
 export const Stats: React.FC = () => {
-  const StatWrap = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  `;
   return (
     <StatWrap>
       <Label>
