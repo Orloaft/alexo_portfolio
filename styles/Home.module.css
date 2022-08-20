@@ -6,11 +6,7 @@
   font-family: SilkScreen;
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(
-    109.6deg,
-    rgba(15, 2, 2, 1) 11.2%,
-    rgba(36, 163, 190, 1) 91.1%
-  );
+  background: linear-gradient(109.6deg, #3a7bd5 40%, #3a6073 60%);
   overflow-x: hidden;
 }
 @font-face {

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
+import { backgroundGradient } from "../utils/styleUtils";
 import { Avatar } from "./Avatar";
 
 import { Stats } from "./Stats";
@@ -73,11 +74,7 @@ export const Frame = styled.div`
   border-radius: 0.25rem;
   padding: 0.5rem;
   z-index: 2;
-  background-image: linear-gradient(
-    109.6deg,
-    rgba(15, 2, 2, 1) 11.2%,
-    rgba(36, 163, 190, 1) 91.1%
-  );
+  background: ${backgroundGradient};
 `;
 const FlipCard = styled.div`
   background-color: transparent;
