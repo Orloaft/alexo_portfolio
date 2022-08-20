@@ -1,14 +1,17 @@
+import { border, borderRadius } from "@mui/system";
 import styled, { keyframes } from "styled-components";
-
+import { backgroundGradient } from "../utils/styleUtils";
+import { BackCard, FrontCard, InnerCard } from "./CharacterView";
 import { Frame } from "./CharacterView";
 import { ToolTip } from "./ToolTip";
 
-const PartyMenu = styled(Frame)`
-  height: 50%;
-  width: 40%;
+const PartyMenu = styled.div`
+  z-index: 4;
+  height: 40%;
+  width: 50%;
   min-width: 15rem;
   flex-direction: column;
-  padding: 1rem;
+
   @media (min-width: 48rem) {
     width: 30%;
   }
@@ -78,23 +81,56 @@ const MenuSpan = styled.span`
     animation-timing-function: linear;
   }
 `;
+const OptionWrap = styled.div`
+  width: 100%;
+  height: 100%;
+  border: 2px solid #ffebcd;
+  color: #ffebcd;
+  borderradius: 0.25rem;
+  padding: 0.5rem;
+  zindex: 2;
+  background: ${backgroundGradient};
+`;
+const FlipCard = styled.div`
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  perspective: 1000px;
+  &:hover {
+    & .innerCard {
+      transform: rotateY(180deg);
+    }
+  }
+`;
 interface PartyMenuViewProps {}
 export const PartyMenuView = (props: PartyMenuViewProps) => {
   return (
     <PartyMenu>
-      <ToolTip content="Abilities">
-        <MenuSpan>Abilities</MenuSpan>
-      </ToolTip>
-      <ToolTip content="Items">
-        <MenuSpan>Items</MenuSpan>
-      </ToolTip>
-      <ToolTip content="Magic">
-        <MenuSpan>Magic</MenuSpan>{" "}
-      </ToolTip>
-      <ToolTip content="GF">
-        {" "}
-        <MenuSpan>GF</MenuSpan>{" "}
-      </ToolTip>
+      <FlipCard>
+        <InnerCard className="innerCard">
+          <FrontCard>
+            <OptionWrap>
+              <ToolTip content="Abilities">
+                <MenuSpan>Abilities</MenuSpan>
+              </ToolTip>
+              <ToolTip content="Items">
+                <MenuSpan>Items</MenuSpan>
+              </ToolTip>
+              <ToolTip content="Magic">
+                <MenuSpan>Magic</MenuSpan>{" "}
+              </ToolTip>
+              <ToolTip content="GF">
+                {" "}
+                <MenuSpan>GF</MenuSpan>{" "}
+              </ToolTip>
+            </OptionWrap>
+          </FrontCard>
+          <BackCard>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+            maiores rem praesentium impedit nulla ipsum, sed velit tempora quas
+          </BackCard>
+        </InnerCard>
+      </FlipCard>
     </PartyMenu>
   );
 };

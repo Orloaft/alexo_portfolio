@@ -87,7 +87,7 @@ const FlipCard = styled.div`
     }
   }
 `;
-const InnerCard = styled.div`
+export const InnerCard = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
@@ -95,14 +95,14 @@ const InnerCard = styled.div`
   transition: transform 1.6s;
   transform-style: preserve-3d;
 `;
-const FrontCard = styled.div`
+export const FrontCard = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 `;
-const BackCard = styled(Frame)`
+export const BackCard = styled(Frame)`
   position: absolute;
   width: 100%;
   height: 100%;
