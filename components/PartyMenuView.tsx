@@ -1,9 +1,8 @@
-import { border, borderRadius } from "@mui/system";
+import React from "react";
 import styled, { keyframes } from "styled-components";
+import { setTimeout } from "timers";
 import { backgroundGradient } from "../utils/styleUtils";
 import { BackCard, FrontCard, InnerCard } from "./CharacterView";
-import { Frame } from "./CharacterView";
-import { ToolTip } from "./ToolTip";
 
 const PartyMenu = styled.div`
   z-index: 4;
@@ -71,63 +70,80 @@ const accordionText = keyframes`
   
 `;
 
-const MenuSpan = styled.span`
-  cursor: default;
-  font-size: 2rem;
-  &:hover {
-    animation: ${accordionText};
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  }
-`;
-const OptionWrap = styled.div`
-  width: 100%;
-  height: 100%;
-  border: 2px solid #ffebcd;
-  color: #ffebcd;
-  borderradius: 0.25rem;
-  padding: 0.5rem;
-  zindex: 2;
-  background: ${backgroundGradient};
-`;
-const FlipCard = styled.div`
-  background-color: transparent;
-  height: 100%;
-  width: 100%;
-  perspective: 1000px;
-  &:hover {
-    & .innerCard {
-      transform: rotateY(180deg);
-    }
-  }
-`;
 interface PartyMenuViewProps {}
 export const PartyMenuView = (props: PartyMenuViewProps) => {
+  const [backContent, setBackContent] = React.useState<string>("");
+  const MenuSpan = styled.span`
+    cursor: default;
+    font-size: 2rem;
+    &:hover {
+      animation: ${accordionText};
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  `;
+
+  const OptionWrap = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #ffebcd;
+    color: #ffebcd;
+    borderradius: 0.25rem;
+    padding: 0.5rem;
+    zindex: 2;
+    background: ${backgroundGradient};
+  `;
+  const FlipCard = styled.div`
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    perspective: 1000px;
+    ${backContent
+      ? `  &:hover {
+        & .innerCard {
+          transform: rotateY(180deg);
+        }
+      }`
+      : ``}
+  `;
   return (
     <PartyMenu>
       <FlipCard>
         <InnerCard className="innerCard">
           <FrontCard>
             <OptionWrap>
-              <ToolTip content="Abilities">
-                <MenuSpan>Abilities</MenuSpan>
-              </ToolTip>
-              <ToolTip content="Items">
-                <MenuSpan>Items</MenuSpan>
-              </ToolTip>
-              <ToolTip content="Magic">
-                <MenuSpan>Magic</MenuSpan>{" "}
-              </ToolTip>
-              <ToolTip content="GF">
-                {" "}
-                <MenuSpan>GF</MenuSpan>{" "}
-              </ToolTip>
+              <MenuSpan
+                onClick={() => {
+                  setBackContent(`Javascript, React, HTML/CSS,
+                  Node, Express, MySQL, Web APIs,
+                  (DOM)API, Agile development,
+                  User Authentication,
+                  OAuth, Heroku, GitHub, Jest,
+                  Gdscript, Trux and SonicSheets.`);
+                }}
+              >
+                Abilities
+              </MenuSpan>
+              <MenuSpan
+                onClick={() => {
+                  setBackContent(`
+	
+                Dell Latitude E7470 14in Laptop, Core i5-6300U 2.4GHz, 8GB Ram, 256GB SSD, Windows 10 Pro 64bit`);
+                }}
+              >
+                Items
+              </MenuSpan>
+              <MenuSpan>Magic</MenuSpan>
+              <MenuSpan>GF</MenuSpan>
             </OptionWrap>
           </FrontCard>
-          <BackCard>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
-            maiores rem praesentium impedit nulla ipsum, sed velit tempora quas
+          <BackCard
+            onMouseLeave={() => setTimeout(() => setBackContent(""), 1000)}
+          >
+            {backContent}
           </BackCard>
         </InnerCard>
       </FlipCard>
