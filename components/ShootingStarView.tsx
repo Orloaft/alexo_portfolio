@@ -23,7 +23,7 @@ const ShootingStarContainer = styled.section`
 `;
 const ShootingStar = styled.span`
   position: absolute;
-  z-index: 4;
+  z-index: 1;
   top: 0;
   left: 30%;
   width: 4px;
@@ -34,7 +34,7 @@ const ShootingStar = styled.span`
     0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 1);
   animation: ${animate} 3s linear infinite;
   &::before {
-    z-index: 4;
+    z-index: 1;
     content: " ";
     position: absolute;
     transform: translateY(-50%);
@@ -77,11 +77,27 @@ const ShootingStar = styled.span`
     left: initial;
     animation-delay: 1s;
     animation-duration: 1.75s;
+  }
+  &: nth-child(6) {
+    top: 0;
+    left: 80px;
+
+    animation-delay: 1.2s;
+    animation-duration: 2s;
+  }
+  &: nth-child(7) {
+    top: 0;
+    left: 200px;
+
+    animation-delay: 1.4s;
+    animation-duration: 3s;
   } ;
 `;
 export const ShootingStarView = () => {
   return (
     <ShootingStarContainer>
+      <ShootingStar />
+      <ShootingStar />
       <ShootingStar />
       <ShootingStar />
       <ShootingStar />
