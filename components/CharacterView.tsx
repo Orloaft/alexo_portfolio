@@ -124,6 +124,13 @@ const Character = styled(Frame)`
   justify-content: space-between;
   height: 100%;
   width: 100%;
+  max-width: 100vw;
+  @media (min-width: 48rem) {
+    width: 100%;
+  }
+  @media (min-width: 80rem) {
+    width: 100%;
+  }
 `;
 export const CharacterView: React.FC<CharacterViewProps> = () => {
   return (

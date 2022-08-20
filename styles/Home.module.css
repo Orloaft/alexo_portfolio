@@ -1,7 +1,6 @@
 .container {
-  position: relative;
+  position: absolute;
   justify-content: center;
-
   align-items: center;
   display: flex;
   font-family: SilkScreen;
@@ -12,7 +11,7 @@
     rgba(15, 2, 2, 1) 11.2%,
     rgba(36, 163, 190, 1) 91.1%
   );
-  overflow: hidden;
+  overflow-x: hidden;
 }
 @font-face {
   font-family: SilkScreen;

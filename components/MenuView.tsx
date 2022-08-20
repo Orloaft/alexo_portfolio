@@ -30,29 +30,36 @@ const PartyWrap = styled.div`
 const Box = styled.div`
   position: relative;
   height: 20%;
+  min-height: 8rem;
   width: 100%;
 `;
 const MenuContainer = styled.div`
   display: flex;
-  gap: 0.75rem;
   height: 100%;
   width: 100%;
+  gap: 0.5rem;
   position: absolute;
-  top: 25%;
-  left: 25%;
+  flex-direction: column;
   animation: ${emerge};
   animation-duration: 0.5s;
   animation-iteration-count: once;
   animation-timing-function: linear;
+  @media (min-width: 48rem) {
+    flex-direction: row;
+    top: 10%;
+    left: 10%;
+    gap: 0.75rem;
+  }
+  @media (min-width: 80rem) {
+    top: 25%;
+    left: 25%;
+  }
 `;
 
 export const MenuView = () => {
   return (
     <MenuContainer>
       <PartyWrap>
-        <Box>
-          <CharacterView />
-        </Box>
         <Box>
           <CharacterView />
         </Box>

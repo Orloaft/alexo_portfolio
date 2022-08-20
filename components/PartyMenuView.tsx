@@ -5,9 +5,16 @@ import { ToolTip } from "./ToolTip";
 
 const PartyMenu = styled(Frame)`
   height: 50%;
-  width: 30%;
+  width: 40%;
+  min-width: 15rem;
   flex-direction: column;
   padding: 1rem;
+  @media (min-width: 48rem) {
+    width: 30%;
+  }
+  @media (min-width: 80rem) {
+    width: 20%;
+  }
 `;
 
 const accordionText = keyframes`
